@@ -11,7 +11,8 @@ namespace TrainingApp
 {
     public partial class Products : System.Web.UI.UserControl
     {
-        public ISalesBusiness SalesBusiness { get; set; } 
+        public IProductInformation ProductInformation { get; set; } 
+        public ISalesInformation SalesInformation { get; set; } 
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,7 +37,7 @@ namespace TrainingApp
 
         public void Initialize(int productId)
         {
-            var product = SalesBusiness.GetProduct(productId);
+            var product = ProductInformation.GetProduct(productId);
 
             if (product is null)
             {
@@ -46,6 +47,13 @@ namespace TrainingApp
             this.productName.Text = product.ProductName;
             this.productColor.Text = product.Color;
             this.productPrice.Text = product.Price.ToString("C");
+
+            GetSalesInformation(productId);
+        }
+
+        private void GetSalesInformation(int productId)
+        {
+            var sales = SalesInformation.GetSalesOrders(productId);
         }
     }
 }

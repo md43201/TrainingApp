@@ -46,8 +46,10 @@
     <Compile Include="DataModels\ProductSubCategory.cs" />
     <Compile Include="DataModels\SalesOrder.cs" />
     <Compile Include="DataModels\SalesOrderDetailLine.cs" />
-    <Compile Include="Interfaces\ISalesBusiness.cs" />
+    <Compile Include="Interfaces\IProductInformation.cs" />
+    <Compile Include="Interfaces\IProductData.cs" />
     <Compile Include="Interfaces\ISalesData.cs" />
+    <Compile Include="Interfaces\ISalesInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,11 +9,11 @@ using TrainingApp.Shared.Interfaces;
 
 namespace TrainingApp.Business
 {
-    public class TrainingAppBusiness : ISalesBusiness
+    public class ProductInformation : IProductInformation
     {
-        private ISalesData _salesData = null;
+        private IProductData _salesData = null;
 
-        public TrainingAppBusiness(ISalesData salesData)
+        public ProductInformation(IProductData salesData)
         {
             _salesData = salesData;
         }

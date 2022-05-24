@@ -18,15 +18,19 @@ namespace TrainingApp.StructureMap
             //var databaseConnectionString = "testconnectionstring";
 
             //this.For<ISalesData>().Use<TrainingAppDataMock>();
+            this.For<IProductData>().Use<ProductData>();
             this.For<ISalesData>().Use<SalesData>();
-            this.For<ISalesBusiness>().Use<TrainingAppBusiness>();
+            this.For<IProductInformation>().Use<ProductInformation>();
+            this.For<ISalesInformation>().Use<SalesInformation>();
 
             //this.Policies.SetAllProperties(y => y.WithAnyTypeFromNamespaceContainingType<TrainingAppDataMock>());
 
             this.Policies.SetAllProperties(c =>
             {
+                c.WithAnyTypeFromNamespaceContainingType<IProductData>();
                 c.WithAnyTypeFromNamespaceContainingType<ISalesData>();
-                c.WithAnyTypeFromNamespaceContainingType<ISalesBusiness>();
+                c.WithAnyTypeFromNamespaceContainingType<IProductInformation>();
+                c.WithAnyTypeFromNamespaceContainingType<ISalesInformation>();
             });
         }
     }

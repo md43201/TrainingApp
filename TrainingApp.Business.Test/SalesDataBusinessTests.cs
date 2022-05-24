@@ -13,15 +13,15 @@ namespace TrainingApp.Business.Test
     [TestFixture]
     public class BusinessProcessTests
     {
-        private TrainingAppBusiness _businessLogic = null;
-        private Mock<ISalesData> _moqProducts = null; 
+        private ProductInformation _businessLogic = null;
+        private Mock<IProductData> _moqProducts = null; 
 
         [OneTimeSetUp]
         public void TestsSetup()
         {
-            _moqProducts = new Mock<ISalesData>();
+            _moqProducts = new Mock<IProductData>();
             _moqProducts.Setup(sd => sd.GetProducts(It.IsAny<int>())).Returns((int subCategoryId) => this.GetProducts(subCategoryId));
-            _businessLogic = new TrainingAppBusiness(_moqProducts.Object);
+            _businessLogic = new ProductInformation(_moqProducts.Object);
         }
 
         [TestCase(10)]

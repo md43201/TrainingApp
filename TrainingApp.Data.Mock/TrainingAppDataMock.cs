@@ -8,7 +8,7 @@ using TrainingApp.Shared.Interfaces;
 
 namespace TrainingApp.Data.Mock
 {
-    public class TrainingAppDataMock : ISalesData
+    public class TrainingAppDataMock : IProductData
     {
         private const int ProductCategoryKeyBikes = 1;
         private const int ProductCategoryKeyMoPeds = 2;

@@ -1,31 +1,36 @@
 ﻿using StructureMap.Attributes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using TrainingApp.Business;
-using TrainingApp.Data.Mock;
-using TrainingApp.Data.SqlServer;
 using TrainingApp.Shared.DataModels;
 using TrainingApp.Shared.Interfaces;
-using TrainingApp.StructureMap;
 
 namespace TrainingApp
 {
     public partial class Training : BasePageWithIoC
     {
-        private ISalesBusiness _salesBusiness = null;
+        private IProductInformation _productInformation = null;
+        private ISalesInformation _salesInformation = null;
 
         [SetterProperty]
-        public ISalesBusiness SalesBusiness
+        public IProductInformation ProductInformation
         {
-            get { return _salesBusiness; }
+            get { return _productInformation; }
             set
             {
-                _salesBusiness = value;
-                this.ProductDetails.SalesBusiness = _salesBusiness;
+                _productInformation = value;
+                this.ProductDetails.ProductInformation = _productInformation;
+            }
+        }
+
+        [SetterProperty]
+        public ISalesInformation SalesInformation
+        {
+            get { return _salesInformation; }
+            set
+            {
+                _salesInformation = value;
+                this.ProductDetails.SalesInformation = _salesInformation;
             }
         }
 
@@ -70,17 +75,17 @@ namespace TrainingApp
 
         private IEnumerable<ProductCategory> GetProductCategories()
         {
-            return SalesBusiness.GetProductCategories();
+            return ProductInformation.GetProductCategories();
         }
 
         private IEnumerable<ProductSubCategory> GetProductSubCategories(int categoryId)
         {
-            return SalesBusiness.GetProductSubCategories(categoryId);
+            return ProductInformation.GetProductSubCategories(categoryId);
         }
 
         private IEnumerable<Product> GetProducts(int subCategoryId)
         {
-            return SalesBusiness.GetProducts(subCategoryId);
+            return ProductInformation.GetProducts(subCategoryId);
         }
 
         protected void ddlCategories_SelectedIndexChanged(object sender, EventArgs e)

@@ -7,8 +7,8 @@ using TrainingApp.Shared.DataModels;
 
 namespace TrainingApp.Shared.Interfaces
 {
-    public interface ISalesData
+    public interface ISalesInformation
     {
-        IEnumerable<SalesOrder> GetOrdersForProduct(int productId);
+        IEnumerable<SalesOrder> GetSalesOrders(int productId);
     }
 }

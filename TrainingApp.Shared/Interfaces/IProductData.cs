@@ -7,14 +7,11 @@ using TrainingApp.Shared.DataModels;
 
 namespace TrainingApp.Shared.Interfaces
 {
-    public interface ISalesBusiness
+    public interface IProductData
     {
         IEnumerable<ProductCategory> GetProductCategories();
-
-        IEnumerable<ProductSubCategory> GetProductSubCategories(int categoryId, string nameStartsWith = null);
-
-        IEnumerable<Product> GetProducts(int subCategoryId, decimal? lowPrice = null, decimal? highPrice = null);
-
+        IEnumerable<ProductSubCategory> GetProductSubCategories(int categoryId);
+        IEnumerable<Product> GetProducts(int subCategoryId);
         Product GetProduct(int productId);
     }
 }
