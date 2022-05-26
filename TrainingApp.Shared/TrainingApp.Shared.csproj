@@ -41,16 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModels\Person.cs" />
+    <Compile Include="DataModels\PhoneNumber.cs" />
     <Compile Include="DataModels\Product.cs" />
     <Compile Include="DataModels\ProductCategory.cs" />
     <Compile Include="DataModels\ProductSubCategory.cs" />
     <Compile Include="DataModels\SalesOrder.cs" />
     <Compile Include="DataModels\SalesOrderDetailLine.cs" />
+    <Compile Include="Enums\PhoneNumberType.cs" />
     <Compile Include="Interfaces\IProductInformation.cs" />
     <Compile Include="Interfaces\IProductData.cs" />
     <Compile Include="Interfaces\ISalesData.cs" />
     <Compile Include="Interfaces\ISalesInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
